@@ -46,6 +46,8 @@ def fetch (uri):
 def main():
     print("Watching MSY products\n")
 
+    print("Initialising ...", end=" ")
+
     uri = "http://www.msy.com.au/index.jsp"
     fetch(uri)
 
@@ -57,10 +59,9 @@ def main():
 
     uri = "http://www.msy.com.au/SessionService"
 
-    print("Initialising ...", end=" ")
-
     req = urllib2.Request(uri, data, headers)
     res = opener.open(req)
+
     if "OK" in res.read():
         print("ok")
     else:
