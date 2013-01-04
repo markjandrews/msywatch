@@ -98,17 +98,17 @@ def main():
 
         if name:
             print("ok")
-            products.append({"name":name, "stock":stock, "price":price})
+            products.append({"name":name, "stock":stock, "price":price, "code":code})
         else:
             print("failed")
 
         res.close()
 
-    products = multikeysort(products, ['-stock', 'name'])
+    products = multikeysort(products, ['-stock', 'code'])
 
     print()
     for product in products:
-        print("%s: %s - %s" % (product['stock'].rjust(13), product['name'].ljust(50), product['price']))
+        print("%s: %s %s - %s" % (product['stock'].rjust(13), product['code'].ljust(6l), product['name'].ljust(50), product['price']))
 
 if __name__ == "__main__":
     main()
